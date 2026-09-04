@@ -18,6 +18,7 @@ X/Twitter, TikTok, Reels or Shorts.
 | `music.wav` | The synthesized music bed (44.1 kHz stereo). |
 | `narration.mp3` | The voiceover track. |
 | `LINKEDIN-POST.md` | Copy/paste-ready LinkedIn announcement. |
+| `SOCIAL-CAPTION.md` | Post-ready captions, hooks & hashtags for TikTok/Reels/Shorts/X/YouTube. |
 
 ## Licensing / safety
 
