@@ -1,5 +1,5 @@
-@import url("https://rsms.me/inter/inter.css");
-
+/* System font stack — no external request, so the strict CSP never blocks it
+   and the app renders identically offline. */
 :root {
   --bg: #0b0f14;
   --bg-2: #0f151c;
@@ -37,8 +37,8 @@ body {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "cv02", "cv03", "cv04", "ss01";
   line-height: 1.5;

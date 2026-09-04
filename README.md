@@ -138,7 +138,10 @@ would change in production. Highlights:
   detects alteration, deletion, and reordering.
 - **Separation of duties:** a person can never approve their own privileged change.
 - **Credential hygiene:** PBKDF2-SHA256, per-user salt, timing-safe compares.
-- **Session hygiene:** HttpOnly, SameSite=Strict, signed, expiring cookie.
+- **Session hygiene:** HttpOnly, SameSite=Strict, signed, expiring cookie. The
+  `Secure` flag is set only when the connection is actually HTTPS (via
+  `x-forwarded-proto`), so it's enforced behind Vercel's TLS yet also works over
+  a plain-HTTP local preview.
 - **Transport hardening:** strict CSP and security headers.
 - **No vulnerable runtime deps:** `npm audit` reports **0 vulnerabilities**.
 

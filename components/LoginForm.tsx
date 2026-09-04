@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { LogIn, ShieldCheck, ArrowLeft } from "lucide-react";
 
@@ -13,7 +13,6 @@ const DEMO = [
 ];
 
 export default function LoginForm() {
-  const router = useRouter();
   const params = useSearchParams();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -44,8 +43,9 @@ export default function LoginForm() {
       setError(data.error ?? "Sign-in failed.");
       return;
     }
-    router.push("/dashboard");
-    router.refresh();
+    // Full navigation ensures the freshly-set session cookie is sent to the
+    // server when the dashboard renders (client-side RSC push could race it).
+    window.location.href = "/dashboard";
   }
 
   return (

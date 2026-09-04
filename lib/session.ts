@@ -15,7 +15,7 @@
  *  - Path=/    : sent to all routes.
  */
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { b64urlDecode, b64url, hmacSign, safeEqual } from "./crypto";
 
 const SESSION_COOKIE = "chokepoint_session";
@@ -56,6 +56,20 @@ function parseToken(token: string): SessionPayload | null {
   return payload;
 }
 
+/**
+ * Secure only when the connection is actually HTTPS. In production behind a TLS
+ * terminator (Vercel) the request carries `x-forwarded-proto: https`, so we set
+ * Secure. Over a plain-HTTP preview the browser would otherwise *drop* a Secure
+ * cookie entirely — which breaks the demo. Reflecting the real scheme keeps the
+ * cookie correct and working everywhere.
+ */
+async function isHttps(): Promise<boolean> {
+  const h = await headers();
+  // Vercel/proxies stamp x-forwarded-proto with the real scheme. Absent or
+  // "http" → not secure, so the cookie is accepted in the local preview too.
+  return (h.get("x-forwarded-proto") ?? "").toLowerCase() === "https";
+}
+
 /** Set the session cookie (HttpOnly, SameSite=Strict). */
 export async function setSessionCookie(uid: string): Promise<void> {
   const payload: SessionPayload = { uid, exp: Date.now() + SESSION_MAX_AGE * 1000 };
@@ -64,7 +78,7 @@ export async function setSessionCookie(uid: string): Promise<void> {
   store.set(SESSION_COOKIE, value, {
     httpOnly: true,
     sameSite: "strict",
-    secure: process.env.NODE_ENV === "production",
+    secure: await isHttps(),
     path: "/",
     maxAge: SESSION_MAX_AGE,
   });
@@ -75,6 +89,7 @@ export async function clearSessionCookie(): Promise<void> {
   store.set(SESSION_COOKIE, "", {
     httpOnly: true,
     sameSite: "strict",
+    secure: await isHttps(),
     path: "/",
     maxAge: 0,
   });
