@@ -7,7 +7,8 @@ X/Twitter, TikTok, Reels or Shorts.
 
 | File | What |
 | --- | --- |
-| **`chokepoint-demo.mp4`** | **The final video** — 1920×1080, H.264, ~28s, with voiceover **and** music. YouTube/LinkedIn-ready. |
+| **`chokepoint-demo.mp4`** | **Horizontal / landscape (16:9)** — 1920×1080, H.264, ~28s, with voiceover **and** music. For **YouTube** and LinkedIn. |
+| **`chokepoint-demo-vertical.mp4`** | **Vertical (9:16)** — 1080×1920, H.264, ~28s. For **Shorts, Reels & TikTok**. Same content, sharp video centered over a blurred backdrop. |
 | `intro-card.png` | The animated title card ("PRESS START"). |
 | `outro-card.png` | The "LEVEL UP" end card with the live URL. |
 | `hud-overlay.png` | Transparent gaming HUD corner brackets overlay. |
