@@ -226,6 +226,70 @@ class Store {
     };
   }
 
+  /**
+   * Rich, derived data for the command-center dashboard.
+   * Everything here is computed from the live (tamper-evident) ledger, so the
+   * visuals reflect the real chain — not hardcoded numbers.
+   */
+  dashboard() {
+    const ordered = [...this.ledger].sort((a, b) => a.index - b.index);
+    const risks = assessLedger(this.ledger); // index order
+
+    // Risk-trend series: per-entry score, useful as an area/sparkline.
+    const trend = risks.map((r) => ({
+      index: r.entryIndex,
+      score: r.score,
+      severity: r.severity,
+    }));
+
+    // Action-category breakdown (horizontal bars).
+    const actions: Record<string, number> = {};
+    for (const e of ordered) {
+      const key = actionCategory(e.action);
+      actions[key] = (actions[key] ?? 0) + 1;
+    }
+    const actionBreakdown = Object.entries(actions)
+      .map(([label, count]) => ({ label, count }))
+      .sort((a, b) => b.count - a.count);
+
+    // Events in the last 6 buckets of 10 minutes (activity timeline).
+    const buckets = 6;
+    const bucketMs = 10 * 60_000;
+    const now = Date.now();
+    const activity: { label: string; count: number; risky: number }[] = [];
+    for (let i = buckets - 1; i >= 0; i--) {
+      const start = now - (i + 1) * bucketMs;
+      const end = start + bucketMs;
+      let count = 0;
+      let risky = 0;
+      for (const e of ordered) {
+        const t = new Date(e.ts).getTime();
+        if (t >= start && t < end) {
+          count++;
+          if (/login_failed|grant_role|rotate_secret|revoke|delete|elevate/.test(e.action)) risky++;
+        }
+      }
+      activity.push({ label: `${-i * 10}m`, count, risky });
+    }
+
+    // Top severity signals (drives the "live alerts" feed).
+    const topAlerts = this.risks()
+      .filter((r) => r.severity === "CRITICAL" || r.severity === "HIGH" || r.severity === "MEDIUM")
+      .slice(0, 6);
+
+    return {
+      trend,
+      actionBreakdown,
+      activity,
+      topAlerts,
+      totals: {
+        events: ordered.length,
+        logins: actionBreakdown.find((a) => a.label === "Auth")?.count ?? 0,
+        privileged: actionBreakdown.filter((a) => ["Privilege", "Dual-control"].includes(a.label)).reduce((s, a) => s + a.count, 0),
+      },
+    };
+  }
+
   /* ---- Mandates ---- */
   createMandate(params: {
     action: string;
@@ -271,6 +335,20 @@ class Store {
     this.mandates = [];
     this.init();
   }
+}
+
+/** Bucket an audit action into a coarse category for the breakdown chart. */
+function actionCategory(action: string): string {
+  if (/login_failed|auth_failed/.test(action)) return "Failed auth";
+  if (/login/.test(action)) return "Auth";
+  if (/grant_agent|request_agent_action/.test(action)) return "Agent";
+  if (/grant_role|elevate|revoke|rotate|delete/.test(action)) return "Privilege";
+  if (/approve|reject|request_mandate|approve_blocked/.test(action)) return "Dual-control";
+  if (/scan/.test(action)) return "Scan";
+  if (/verify_integrity/.test(action)) return "Verify";
+  if (/export/.test(action)) return "Export";
+  if (/view_log/.test(action)) return "View";
+  return "Other";
 }
 
 // Module singleton that survives HMR.

@@ -8,3 +8,4 @@ out
 data/*.json
 !data/.gitkeep
 coverage
+tsconfig.tsbuildinfo

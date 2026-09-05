@@ -19,6 +19,7 @@
   --risk-medium: #ecc94b;
   --risk-low: #48bb78;
   --code: #0d1117;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --radius: 12px;
   --radius-sm: 8px;
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
@@ -635,3 +636,119 @@ pre,
 .mb-16 { margin-bottom: 16px; }
 .mb-24 { margin-bottom: 24px; }
 .mt-16 { margin-top: 16px; }
+
+/* ---------- Dashboard / command center ---------- */
+.span-2 { grid-column: span 2; }
+
+.card .mb-0 { margin-bottom: 0; }
+
+/* KPI cards */
+.kpi {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  gap: 12px;
+}
+.kpi-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.kpi-label {
+  font-size: 12px;
+  color: var(--text-mute);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.kpi-ico {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+}
+.kpi-value {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.kpi-unit {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-mute);
+  margin-left: 4px;
+}
+.kpi-delta {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* Donut legend */
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.legend-label {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.legend-val {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Horizontal bar list */
+.barlist {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.barlist-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 28px;
+  align-items: center;
+  gap: 10px;
+}
+.barlist-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.barlist-track {
+  background: var(--code);
+  border-radius: 20px;
+  height: 9px;
+  overflow: hidden;
+}
+.barlist-fill {
+  height: 100%;
+  border-radius: 20px;
+  min-width: 3px;
+  transition: width 0.4s ease;
+}
+.barlist-count {
+  font-weight: 700;
+  font-size: 13px;
+  text-align: right;
+}
+
+a.btn,
+a.btn-sm { text-decoration: none; }
