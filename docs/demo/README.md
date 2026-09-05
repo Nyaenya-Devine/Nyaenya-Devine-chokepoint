@@ -1,7 +1,9 @@
 # Chokepoint — Demo video
 
 A **28-second, gaming-styled product demo** you can post on YouTube, LinkedIn,
-X/Twitter, TikTok, Reels or Shorts.
+X/Twitter, TikTok, Reels or Shorts. Rebuilt from the redesigned
+**command-center dashboard** (live risk index, risk-trend chart, severity donut,
+activity timeline, action breakdown, live alerts and tamper-evident audit trail).
 
 ## Files
 
@@ -12,8 +14,8 @@ X/Twitter, TikTok, Reels or Shorts.
 | `intro-card.png` | The animated title card ("PRESS START"). |
 | `outro-card.png` | The "LEVEL UP" end card with the live URL. |
 | `hud-overlay.png` | Transparent gaming HUD corner brackets overlay. |
-| `scanline.png` | The cyan light-sweep strip used in the animation. |
-| `build-demo.sh` | ffmpeg script that assembles the video (zoom, HUD, caption, scanline). |
+| `scanline.png` | Legacy cyan light-sweep strip (no longer used — it obscured the new data-rich dashboard). |
+| `build-video.sh` | ffmpeg script that assembles the video: punch-in on cards, vertical pan over tall pages, HUD corner brackets + gaming caption. |
 | `synth-music.mjs` | Node script that synthesizes the music bed. |
 | `music.wav` | The synthesized music bed (44.1 kHz stereo). |
 | `narration.mp3` | The voiceover track. |
