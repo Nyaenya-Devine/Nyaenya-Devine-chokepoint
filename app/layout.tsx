@@ -3,10 +3,13 @@ import "./globals.css";
 import PWARegister from "@/components/PWARegister";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nyaenya-devine-chokepoint.vercel.app"),
   title: "Chokepoint — Least-Privilege Access Control & Tamper-Evident Audit",
   description:
     "Chokepoint is a least-privilege access-control and tamper-evident audit platform for sensitive operations — humans and AI agents. Role separation, dual-control approvals, hash-chained audit log, and live risk detection.",
   applicationName: "Chokepoint",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
   manifest: "/manifest.webmanifest",
   icons: {
     icon: "/icon.svg",

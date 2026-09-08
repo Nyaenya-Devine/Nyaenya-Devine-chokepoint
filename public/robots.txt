@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /login
+
+Host: https://nyaenya-devine-chokepoint.vercel.app
+Sitemap: https://nyaenya-devine-chokepoint.vercel.app/sitemap.xml
