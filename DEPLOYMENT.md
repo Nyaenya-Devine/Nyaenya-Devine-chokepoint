@@ -10,10 +10,10 @@ so the setup isn't rediscovered each time.
 
 | What | URL |
 | --- | --- |
-| **Live app** | `https://nyaenya-devine-chokepoint.vercel.app` |
-| **Repo** | `https://github.com/Nyaenya-Devine/Nyaenya-Devine-chokepoint` |
-| **Security write-up** | `https://nyaenya-devine-chokepoint.vercel.app/security` |
-| **Architecture diagram** | `https://nyaenya-devine-chokepoint.vercel.app/architecture.svg` |
+| **Live app** | `https://chokepoint-demo.vercel.app` (clean, name-free URL) |
+| **Repo** | `https://github.com/Nyaenya-Devine/chokepoint` (renamed from `Nyaenya-Devine-chokepoint`; old URLs 301-redirect) |
+| **Security write-up** | `https://chokepoint-demo.vercel.app/security` |
+| **Architecture diagram** | `https://chokepoint-demo.vercel.app/architecture.svg` |
 
 > **Heads-up:** the bare `https://chokepoint.vercel.app` hostname is **NOT this
 > project**. It is already owned by a different account's Lovable-generated
@@ -26,7 +26,7 @@ so the setup isn't rediscovered each time.
 ## How it's deployed
 
 - **Platform:** Vercel (Next.js auto-detected, `npm run build` + `next start`).
-- **Branch:** `main` / repo `Nyaenya-Devine-chokepoint`.
+- **Branch:** `main` / repo `chokepoint`.
 - **Framework:** Next.js 16.3.4 (App Router, Turbopack).
 - **Runtime env vars (set in Vercel for Production + Preview):**
   - `CHOKEPOINT_SECRET` — key used to HMAC-sign audit entries.
@@ -72,7 +72,7 @@ complete source resolved it.
   That hostname belongs to another account's app. Removing `nyaenya-devine-chokepoint`
   would break every link that points to the real app.
 
-- **Keep `nyaenya-devine-chokepoint.vercel.app` as the canonical production URL.** It
+- **Keep `chokepoint-demo.vercel.app` as the canonical production URL.** It
   is clean, professional, on Vercel's domain, and working.
 
 ### If you want a branded name (recommended for a portfolio)
@@ -91,10 +91,10 @@ Add a **custom domain you own**, e.g. `chokepoint.dev` or `chokepoint.app` (~$10
 Push to `main` → Vercel auto-deploys. To verify the live site:
 ```
 # login, dashboard, audit verification, dual-control flow
-curl -s -X POST https://nyaenya-devine-chokepoint.vercel.app/api/auth/login \
+curl -s -X POST https://chokepoint-demo.vercel.app/api/auth/login \
   -H 'Content-Type: application/json' -d '{"username":"admin","password":"admin1234"}'
 ```
-Then open `https://nyaenya-devine-chokepoint.vercel.app` and sign in.
+Then open `https://chokepoint-demo.vercel.app` and sign in.
 
 ---
 

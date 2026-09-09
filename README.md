@@ -11,7 +11,7 @@ two-person (dual-control) approval workflow, a hash-chained tamper-evident audit
 and explainable anomaly detection. It is built on the **2026 OWASP Agentic AI Top 10**
 failure **ASI03 — Identity & Privilege Abuse**.
 
-> **Try it:** sign in with a one-click demo account on the [live site](https://nyaenya-devine-chokepoint.vercel.app) — no signup. A recruiter can be inside the console in 30 seconds.
+> **Try it:** sign in with a one-click demo account on the [live site](https://chokepoint-demo.vercel.app) — no signup. A recruiter can be inside the console in 30 seconds.
 
 > ▶️ **Demo video:** watch the [28-second product demo](docs/demo/chokepoint-demo.mp4) (YouTube/LinkedIn-ready, original music — safe to post).
 
