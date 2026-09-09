@@ -3,7 +3,7 @@
 Post-ready copy for **TikTok / Reels / Shorts / YouTube / X / LinkedIn**. Pick the
 variant you like. Include or adapt the handle line; add the live URL where relevant.
 
-**Live app:** https://nyaenya-devine-chokepoint.vercel.app
+**Live app:** https://chokepoint-demo.vercel.app
 
 ---
 
@@ -18,7 +18,7 @@ variant you like. Include or adapt the handle line; add the live URL where relev
 >
 > No single player can act alone. That's how you level up your security. 🔐
 >
-> Play it here (no signup): https://nyaenya-devine-chokepoint.vercel.app
+> Play it here (no signup): https://chokepoint-demo.vercel.app
 
 ---
 
@@ -28,7 +28,7 @@ variant you like. Include or adapt the handle line; add the live URL where relev
 > Two players. One decision. Zero solo superpowers.
 >
 > Chokepoint — least privilege, dual control, tamper-evident audit.
-> Built on OWASP Agentic AI (ASI03). Try it: https://nyaenya-devine-chokepoint.vercel.app
+> Built on OWASP Agentic AI (ASI03). Try it: https://chokepoint-demo.vercel.app
 
 ---
 
@@ -46,7 +46,7 @@ variant you like. Include or adapt the handle line; add the live URL where relev
   > "Chokepoint is a least-privilege access-control & tamper-evident audit platform
   > for high-impact human and AI-agent actions: role separation, dual-control, a
   > hash-chained signed audit log, and explainable anomaly detection. Live demo,
-  > no signup -> https://nyaenya-devine-chokepoint.vercel.app"
+  > no signup -> https://chokepoint-demo.vercel.app"
 - **LinkedIn:** use the body in `LINKEDIN-POST.md` (copy/paste-ready, longer
   professional tone), upload the short video clip.
 

@@ -8,7 +8,7 @@ I’ve been building toward a specific, uncomfortable question in security: **ho
 
 So I built **Chokepoint** — a least-privilege access-control + tamper-evident audit platform, live and running:
 
-🔗 **https://nyaenya-devine-chokepoint.vercel.app** — sign in with a demo account, no signup (admin / admin1234).
+🔗 **https://chokepoint-demo.vercel.app** — sign in with a demo account, no signup (admin / admin1234).
 
 What’s inside:
 • **A data-rich command-center dashboard** — live risk index, real-time risk-trend chart, severity donut, activity timeline, action breakdown, live alerts and a tamper-evident audit trail, all fed straight from the hash-chained ledger.
@@ -40,7 +40,7 @@ If you want something snappier that still lands, use this body instead:
 > ▪ Tamper-evident hash-chained + HMAC-signed audit log
 > ▪ Explainable anomaly detection (brute force, after-hours, escalation, agent over-reach)
 >
-> Live demo (no signup): https://nyaenya-devine-chokepoint.vercel.app
+> Live demo (no signup): https://chokepoint-demo.vercel.app
 > Built on Next.js 16 + TS · 26 tests · 0 vulns · mapped to OWASP Agentic AI ASI03.
 >
 > Open to AppSec / security-engineering / SecOps roles. #security #appsec #AgenticAI #OWASP
