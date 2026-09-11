@@ -6,8 +6,11 @@ import {
   ScrollText,
   Activity,
   KeyRound,
-  LogOut,
   Github,
+  Gauge,
+  FileCheck,
+  Beaker,
+  Clock3,
 } from "lucide-react";
 import { getSessionUid } from "@/lib/session";
 import { store } from "@/lib/store";
@@ -19,6 +22,10 @@ const NAV: { href: string; label: string; icon: React.ReactNode; action: Action 
   { href: "/dashboard/audit", label: "Audit log", icon: <ScrollText size={17} />, action: "view_log" },
   { href: "/dashboard/risks", label: "Risk & anomalies", icon: <Activity size={17} />, action: "view_dashboard" },
   { href: "/dashboard/access", label: "Access & controls", icon: <KeyRound size={17} />, action: "view_log" },
+  { href: "/dashboard/fleet-risk", label: "Fleet risk", icon: <Gauge size={17} />, action: "view_dashboard" },
+  { href: "/dashboard/compliance", label: "Compliance", icon: <FileCheck size={17} />, action: "view_log" },
+  { href: "/dashboard/simulation", label: "Simulation", icon: <Beaker size={17} />, action: "view_dashboard" },
+  { href: "/dashboard/time-travel", label: "Time-travel", icon: <Clock3 size={17} />, action: "view_log" },
 ];
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
