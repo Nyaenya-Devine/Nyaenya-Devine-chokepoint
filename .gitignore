@@ -10,3 +10,8 @@ data/*.json
 coverage
 tsconfig.tsbuildinfo
 .vercel
+# demo large binaries moved to GitHub Release asset to keep repo lean
+docs/demo/*.mp4
+docs/demo/*.mp3
+docs/demo/*.wav
+docs/demo/*.png

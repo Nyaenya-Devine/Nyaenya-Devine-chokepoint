@@ -1,6 +1,6 @@
 {
   "name": "chokepoint",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Chokepoint — least-privilege access control & tamper-evident audit for sensitive operations, humans and AI agents.",
   "scripts": {
@@ -8,20 +8,25 @@
     "build": "next build",
     "start": "next start",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "audit": "npm audit --audit-level=high",
+    "lint": "next lint"
   },
   "dependencies": {
     "lucide-react": "^0.454.0",
-    "next": "16.3.4",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "next": "16.3.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.19.0",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
+    "@types/react": "19.2.8",
+    "@types/react-dom": "19.1.11",
     "typescript": "5.5.3",
     "vitest": "^4.0.15"
+  },
+  "engines": {
+    "node": ">=18.18.0"
   }
 }
